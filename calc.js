@@ -31,7 +31,7 @@ Calculator.prototype = {
     this.current = this.storage;
     this.storage = 0;
     this.operation = function(first, second) {
-      return first + second;
+      return first / second;
     };
   },
   equals: function() {
@@ -65,7 +65,7 @@ $('.row>div').click(function() {
       case 'X':
         calc.multiply();
         break;
-      case '&#247':
+      case '÷':
         calc.divide();
         break;
       case '+':
