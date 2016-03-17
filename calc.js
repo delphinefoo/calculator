@@ -1,55 +1,93 @@
 var Calculator = function() {
   this.storage = 0;
   this.current = 0;
+  this.operation;
 };
 
 Calculator.prototype = {
 
   add: function() {
-    this.current = this.storage;
-    this.storage = 0;
+    if (this.operation) {
+      this.storage = this.operation(this.storage, this.current);
+    } else {
+      this.storage = this.current;
+    }
     this.operation = function(first, second) {
       return first + second;
     };
+    this.current = 0;
   },
+
   clear: function() {
+    this.current = 0;
     this.storage = 0;
-    this.updateDisplay(this.storage);
+    this.updateDisplay(this.current);
   },
+
   convert: function() {
 
   },
+
   decimal: function() {
 
   },
+
   digit: function(number) {
-    this.storage = this.storage * 10 + number;
-    this.updateDisplay(this.storage);
-    return this.storage;
+    this.current = this.current * 10 + number;
+    this.updateDisplay(this.current);
+    return this.current;
   },
+
   divide: function() {
-    this.current = this.storage;
-    this.storage = 0;
+    if (this.operation) {
+      this.storage = this.operation(this.storage, this.current);
+    } else {
+      this.storage = this.current;
+    }
     this.operation = function(first, second) {
       return first / second;
     };
+    this.current = 0;
   },
+
   equals: function() {
-    var num = this.operation(this.current, this.storage);
+    var num = this.operation(this.storage, this.current);
     this.storage = num;
     this.updateDisplay(num);
   },
-  multiply: function() {},
+
+  multiply: function() {
+    if (this.operation) {
+      this.storage = this.operation(this.storage, this.current);
+    } else {
+      this.storage = this.current;
+    }
+    this.current = 0;
+    this.operation = function(first, second) {
+      return first * second;
+    };
+  },
+
   percent: function() {
 
   },
-  setCurrent: function(value, text) {
 
+  subtract: function() {
+    if (this.operation) {
+      this.storage = this.operation(this.current, this.storage);
+    } else {
+      this.storage = this.current;
+    }
+    this.operation = function(first, second) {
+      return first - second;
+    };
+    this.current = 0;
   },
-  subtract: function() {},
+
   updateDisplay: function(value) {
     $('#display').text(value);
   }
+
 };
 
 var calc = new Calculator();
