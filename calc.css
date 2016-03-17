@@ -1,0 +1,23 @@
+.display {
+  border: 1px solid #AAA;
+  padding: 20px;
+  font-size: 20px;
+  text-align: right;
+  height: 25px;
+  width: 165px;
+}
+
+.row div {
+  display: inline-block;
+  min-width: 50px;
+  min-height: 50px;
+  background: #555;
+  border: 1px solid white;
+  text-align: center;
+  color: white;
+  line-height: 50px;
+}
+
+#zero {
+  width: 100px;
+}
