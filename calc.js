@@ -3,6 +3,7 @@ var Calculator = function() {
   this.current = 0;
   this.dec = 0;
   this.operation;
+  this.print = [];
 };
 
 Calculator.prototype = {
@@ -13,6 +14,7 @@ Calculator.prototype = {
       return first + second;
     };
     this.current = 0;
+    this.print.push('+');
   },
 
   clear: function() {
@@ -54,6 +56,7 @@ Calculator.prototype = {
       return first / second;
     };
     this.current = 0;
+    this.print.push('÷');
   },
 
   equals: function() {
@@ -62,6 +65,7 @@ Calculator.prototype = {
     this.current = num;
     this.operation = undefined;
     this.updateDisplay(num);
+    this.print.push('=', num);
   },
 
   multiply: function() {
@@ -70,6 +74,7 @@ Calculator.prototype = {
     this.operation = function(first, second) {
       return first * second;
     };
+    this.print.push('x');
   },
 
   percent: function() {
@@ -85,6 +90,7 @@ Calculator.prototype = {
       this.storage = this.current;
     }
     this.dec = 0;
+    this.print.push(this.current);
   },
 
   subtract: function() {
@@ -93,6 +99,8 @@ Calculator.prototype = {
       return first - second;
     };
     this.current = 0;
+    this.print.push('-');
+
   },
 
   updateDisplay: function(value) {

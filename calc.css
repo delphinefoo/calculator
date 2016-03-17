@@ -3,6 +3,10 @@
   margin: 10% auto;
 }
 
+#zero {
+  min-width: 122.3px;
+}
+
 .display {
   margin-left: -1px;
   border: 1px solid #AAA;
@@ -37,8 +41,4 @@
 
 .row div:active {
   background-color: #8c8c8c;
-}
-
-#zero {
-  min-width: 122.3px;
 }
