@@ -1,16 +1,24 @@
+#container {
+  width: 250px;
+  margin: 10% auto;
+}
+
 .display {
+  margin-left: -1px;
   border: 1px solid #AAA;
   padding: 20px;
   font-size: 1.5rem;
   font-weight: 200;
   text-align: right;
   height: 25px;
-  width: 204px;
+  max-width: 205px;
   background: #527a7a;
   color: white;
+  margin
 }
 
 .row div {
+  cursor: default;
   display: inline-block;
   min-width: 60px;
   min-height: 40px;
@@ -20,6 +28,11 @@
   color: #555;
   line-height: 50px;
   font-size: 1.2rem;
+}
+
+.row div:last-child {
+  background-color: #ff8533;
+  color: white;
 }
 
 .row div:active {
