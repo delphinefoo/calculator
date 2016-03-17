@@ -111,7 +111,7 @@ $('.row>div').click(function() {
       case 'C':
         calc.clear();
         break;
-      case 'X':
+      case 'x':
         calc.multiply();
         break;
       case '÷':
